@@ -1,5 +1,11 @@
 # @saeris/rehype-inline-svg
 
+## 0.0.3
+
+### Patch Changes
+
+- [`3ce79a3`](https://github.com/Saeris/rehype-inline-svg/commit/3ce79a3f4f996a00980e2678a605aea001f899fe) Thanks [@Saeris](https://github.com/Saeris)! - fix transformer type signature
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,6 +1,7 @@
 import { resolve } from "node:path";
 import type { Transformer } from "unified";
 import type { Node, Parent } from "unist";
+import type { Root } from "hast";
 import type { VFile } from "vfile";
 import { SvgCache } from "./cache";
 import { type GroupedImageNodes, type ImageNode, isImageNode } from "./image-node";
@@ -85,13 +86,13 @@ const filterSvgNodes = (groupedNodes: GroupedImageNodes, svgCache: SvgCache, opt
  * This is a Rehype plugin that finds SVG `<img>` elements and replaces them with inlined `<svg>` elements.
  * It also minimizes the SVG to avoid adding too much size to the page.
  */
-export const inlineSVG = (config?: Partial<Options>): Transformer => {
+export const inlineSVG = (config?: Partial<Options>): Transformer<Root, Root> => {
   const options = applyDefaults(config);
   const svgCache = new SvgCache();
   let hits = 0,
     misses = 0;
 
-  return async (tree: Node, file: VFile): Promise<Node> => {
+  return async (tree: Root, file: VFile): Promise<Root> => {
     if (!file.path) {
       throw new Error(`Cannot inline SVG images because the path of the HTML file is unknown`);
     }

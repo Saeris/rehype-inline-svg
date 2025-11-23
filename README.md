@@ -79,10 +79,10 @@ Released under the [MIT][license] © [Drake Costa][personal-website]
 
 <!-- Definitions -->
 
-[ci]: https://github.com/Saeris/remark-del/actions/workflows/ci.yml
-[ci-badge]: https://github.com/Saeris/remark-del/actions/workflows/ci.yml/badge.svg
-[npm]: https://www.npmjs.org/package/@saeris/remark-del
-[npm-badge]: https://img.shields.io/npm/v/@saeris/remark-del.svg?style=flat
+[ci]: https://github.com/Saeris/rehype-inline-svg/actions/workflows/ci.yml
+[ci-badge]: https://github.com/Saeris/rehype-inline-svg/actions/workflows/ci.yml/badge.svg
+[npm]: https://www.npmjs.org/package/@saeris/rehype-inline-svg
+[npm-badge]: https://img.shields.io/npm/v/@saeris/rehype-inline-svg.svg?style=flat
 [unified]: https://github.com/unifiedjs/unified
 [rehype]: https://github.com/rehypejs/rehype
 [rehype-inline-svg]: https://github.com/JS-DevTools/rehype-inline-svg

@@ -14,7 +14,7 @@ import dedent from "dedent";
 import * as prettier from "prettier";
 import type { Node } from "unist";
 import type { Options, CacheEfficiency } from "..";
-import rehypeInlineSvg from "..";
+import { rehypeInlineSvg } from "..";
 
 describe(`rehypeInlineSvg`, () => {
   const tmpDir = join(import.meta.dirname, `./__fixtures__/.tmp`);
@@ -163,6 +163,22 @@ describe(`rehypeInlineSvg`, () => {
           </svg>
         </p>
         <p>Cheers</p>
+        "
+      `);
+    });
+
+    it(`utf-8 file path comaptibility`, async () => {
+      const input = dedent`
+        ![一](./__fixtures__/img/一.svg)
+      `;
+
+      expect(await processMarkdown(input)).toMatchInlineSnapshot(`
+        "
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="acjk" viewBox="0 0 1024 1024" alt="一">
+            <path d="M512 532c96-10 232-21 370 0 28 4 52-17 34-36-24-24-63-48-84-54-13-4-29-5-50 0-50 10-108 20-270 38-158 16-305 24-392 27-11 0-21 7-20 17 0 18 23 36 45 47 34 17 61 6 95 0 96-19 190-32 272-39"></path>
+          </svg>
+        </p>
         "
       `);
     });

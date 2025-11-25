@@ -53,7 +53,7 @@ export class SvgCache extends Map<string, string> {
     this.#hits += nodes.length - 1;
 
     // Read the SVG file
-    let content = await readFile(path, `utf8`);
+    let content = await readFile(path, `utf-8`);
 
     // Optimize the contents, if enabled
     if (optimize) {

@@ -9,11 +9,7 @@ import { type GroupedImageNodes, type SvgNode, isSvgNode } from "./image-node";
 /**
  * Parses the specified SVG image to a HAST tree
  */
-const parseSVG = (
-  filePath: string,
-  svgCache: SvgCache,
-  processor: Processor<Root, undefined, undefined, undefined>
-): SvgNode => {
+const parseSVG = (filePath: string, svgCache: SvgCache, processor: Processor<Root>): SvgNode => {
   const file = new VFile({
     value: svgCache.get(filePath),
     path: filePath
@@ -37,7 +33,10 @@ const parseSVG = (
  */
 export const imgToSVG = (groupedNodes: GroupedImageNodes, svgCache: SvgCache): void => {
   // Create a Rehype processor to parse SVG content
-  const processor = unified().use(rehypeParse, { fragment: true, space: "svg" });
+  const processor = unified().use(rehypeParse, {
+    fragment: true,
+    space: `svg`
+  });
 
   for (const [filePath, imgNodes] of groupedNodes) {
     // Parse the SVG content to a HAST tree

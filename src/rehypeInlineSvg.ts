@@ -36,7 +36,7 @@ const groupSvgNodes = (imgNodes: ImageNode[], htmlFile: VFile): GroupedImageNode
 
   for (const imgNode of imgNodes) {
     // Resolve the SVG file path from the HTML file path
-    const imagePath = resolve(htmlFile.dirname!, imgNode.properties.src);
+    const imagePath = resolve(htmlFile.dirname!, decodeURI(imgNode.properties.src));
 
     const group = groupedNodes.get(imagePath);
     if (!group) {
@@ -86,7 +86,7 @@ const filterSvgNodes = (groupedNodes: GroupedImageNodes, svgCache: SvgCache, opt
  * This is a Rehype plugin that finds SVG `<img>` elements and replaces them with inlined `<svg>` elements.
  * It also minimizes the SVG to avoid adding too much size to the page.
  */
-export const inlineSVG = (config?: Partial<Options>): Transformer<Root, Root> => {
+export const rehypeInlineSvg = (config?: Partial<Options>): Transformer<Root, Root> => {
   const options = applyDefaults(config);
   const svgCache = new SvgCache();
   let hits = 0,

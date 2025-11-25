@@ -1,6 +1,6 @@
-import { inlineSVG } from "./inline-svg";
+import { rehypeInlineSvg } from "./rehypeInlineSvg";
 
 export type { CacheEfficiency, Options } from "./options";
-export { inlineSVG };
+export { rehypeInlineSvg };
 
-export default inlineSVG;
+export default rehypeInlineSvg;

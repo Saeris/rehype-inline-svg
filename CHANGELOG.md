@@ -1,5 +1,11 @@
 # @saeris/rehype-inline-svg
 
+## 0.0.4
+
+### Patch Changes
+
+- [`d83eeab`](https://github.com/Saeris/rehype-inline-svg/commit/d83eeaba9c4d8ce99bf614d7575990756a01d0ba) Thanks [@Saeris](https://github.com/Saeris)! - fix for utf-8 encoding of image src
+
 ## 0.0.3
 
 ### Patch Changes
